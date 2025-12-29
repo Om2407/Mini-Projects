@@ -1,0 +1,103 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0a7592;
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --nav-padding: 20px 40px;
+    --nav-gap: 40px;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ===== Typography ===== */
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(40px, 8vw, 100px);
+    white-space: nowrap;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+/* ===== Navigation ===== */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--nav-padding);
+    background-color: var(--primary-color);
+}
+
+.nav h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav div {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+}
+
+.nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.nav a:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav div {
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: clamp(30px, 10vw, 60px);
+    }
+}
